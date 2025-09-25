@@ -1,1 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camille Joret des Closières - Digital Marketing Strategist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-20px, -10px) rotate(180deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .name {
+            font-size: 2.8em;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .title {
+            font-size: 1.3em;
+            color: #ecf0f1;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+
+        .contact-icon {
+            width: 18px;
+            height: 18px;
+            fill: #3498db;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-right: 3px solid #3498db;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .profile {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #555;
+            text-align: justify;
+        }
+
+        .experience-item, .education-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 3px solid #3498db;
+            position: relative;
+        }
+
+        .experience-item::before, .education-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 5px;
+            width: 13px;
+            height: 13px;
+            background: #3498db;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px white, 0 0 0 6px #3498db;
+        }
+
+        .job-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .company-info {
+            color: #7f8c8d;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .job-description {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-description li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .job-description li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .skills-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #3498db;
+        }
+
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px 0;
+        }
+
+        .language-level {
+            background: #3498db;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .interests {
+            display: grid;
+            gap: 15px;
+        }
+
+        .interest-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .interest-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .interest-description {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .name {
+                font-size: 2.2em;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name">Camille Joret des Closières</h1>
+                <p class="title">Digital Marketing Strategist & E-commerce Specialist</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
+                        </svg>
+                        +33 6 75 69 58 32
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/>
+                        </svg>
+                        camilledesclosieres@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24">
+                            <path d="M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M18.5,18.5V13.2A3.26,3.26 0 0,0 15.24,9.94C14.39,9.94 13.4,10.46 12.92,11.24V10.13H10.13V18.5H12.92V13.57C12.92,12.8 13.54,12.17 14.31,12.17A1.4,1.4 0 0,1 15.71,13.57V18.5H18.5M6.88,8.56A1.68,1.68 0 0,0 8.56,6.88C8.56,5.95 7.81,5.19 6.88,5.19A1.69,1.69 0 0,0 5.19,6.88C5.19,7.81 5.95,8.56 6.88,8.56M8.27,18.5V10.13H5.5V18.5H8.27Z"/>
+                        </svg>
+                        LinkedIn
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <section class="section">
+                    <h2 class="section-title">Compétences</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Marketing Digital</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Google Ads</span>
+                                <span class="skill-tag">Google Analytics</span>
+                                <span class="skill-tag">SEO/SEA</span>
+                                <span class="skill-tag">Growth Hacking</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>Outils & Plateformes</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Salesforce</span>
+                                <span class="skill-tag">WordPress</span>
+                                <span class="skill-tag">KANTAR</span>
+                                <span class="skill-tag">PIM/DAM</span>
+                                <span class="skill-tag">Canva</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>Stratégie & Analyse</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">UX/UI</span>
+                                <span class="skill-tag">CRM</span>
+                                <span class="skill-tag">KPIs</span>
+                                <span class="skill-tag">Design Thinking</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Langues</h2>
+                    <div class="language-item">
+                        <span>Français</span>
+                        <span class="language-level">Natif</span>
+                    </div>
+                    <div class="language-item">
+                        <span>Anglais</span>
+                        <span class="language-level">B2 - TOEIC 825</span>
+                    </div>
+                    <div class="language-item">
+                        <span>Espagnol</span>
+                        <span class="language-level">A2</span>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Centres d'Intérêt</h2>
+                    <div class="interests">
+                        <div class="interest-item">
+                            <div class="interest-title">🏀 Sport</div>
+                            <div class="interest-description">Tennis (6 ans), Basketball (membre actif Léobasket)</div>
+                        </div>
+                        <div class="interest-item">
+                            <div class="interest-title">✈️ Voyages</div>
+                            <div class="interest-description">Expériences internationales multiples : Nigeria, Afrique du Sud, Finlande, Sénégal</div>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <main class="content">
+                <section class="section">
+                    <h2 class="section-title">Profil</h2>
+                    <p class="profile">
+                        Diplômée d'un Master en Digital Marketing Strategy, je possède une expertise solide en activation de campagnes digitales et optimisation de la visibilité des marques en ligne. Fort de mes expériences dans le secteur du luxe et en agences, j'ai développé un sens aigu de l'analyse des performances et une capacité reconnue à collaborer efficacement avec des équipes pluridisciplinaires. Ma rigueur et mon adaptabilité font de moi une professionnelle motivée, prête à mettre mes compétences au service de votre croissance digitale.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Expérience Professionnelle</h2>
+                    
+                    <div class="experience-item">
+                        <span class="date-badge">Jan 2025 - Aujourd'hui</span>
+                        <h3 class="job-title">Chargée de Marketing Digital (Freelance)</h3>
+                        <p class="company-info">JOBatHOME - Paris, France</p>
+                        <ul class="job-description">
+                            <li>Élaboration de stratégies marketing & promotionnelles multicanales avec ciblage précis</li>
+                            <li>Gestion et optimisation du site web : SEO, UX, mise en ligne de contenus</li>
+                            <li>Pilotage de la performance marketing : KPIs, suivi et recommandations d'optimisation</li>
+                            <li>Veille commerciale et support à l'acquisition clients</li>
+                            <li>Développement de Job@Home Academy et stratégies de subventions formation</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <span class="date-badge">Jan - Juin 2024</span>
+                        <h3 class="job-title">Assistante Digital & E-retail</h3>
+                        <p class="company-info">Moët Hennessy Diageo, LVMH - Courbevoie, France</p>
+                        <ul class="job-description">
+                            <li>Élaboration du calendrier annuel d'activation e-retail avec les clients</li>
+                            <li>Coordination de la mise en œuvre des activations avec les agences partenaires</li>
+                            <li>Développement et optimisation des contenus d'animation des marques de luxe</li>
+                            <li>Suivi des KPIs et analyse des performances avec partage d'insights stratégiques</li>
+                            <li>Veille concurrentielle sur les innovations e-commerce et secteur du luxe</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <span class="date-badge">Avr - Août 2023</span>
+                        <h3 class="job-title">Assistante Marketing Conseil</h3>
+                        <p class="company-info">QWAMPLIFY, Activation Shopper - Levallois-Perret, France</p>
+                        <ul class="job-description">
+                            <li>Analyse des problématiques marketing et élaboration de plans d'activation shopper</li>
+                            <li>Présentation de recommandations stratégiques aux grands comptes FMCG (Bonduelle, Mondelez)</li>
+                            <li>Réalisation d'études consommateurs (données Kantar) pour identifier des insights clés</li>
+                            <li>Rédaction de briefs structurés pour piloter la production de supports d'activation</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <span class="date-badge">Fév - Juil 2022</span>
+                        <h3 class="job-title">Assistante Marketing & Communication</h3>
+                        <p class="company-info">ATOS, Direction Afrique - Dakar, Sénégal</p>
+                        <ul class="job-description">
+                            <li>Création et gestion de supports de communication internes et externes</li>
+                            <li>Élaboration de plans de communication et développement de la liste RP</li>
+                            <li>Organisation d'événements : logistique et coordination des parties prenantes</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <span class="date-badge">Août - Déc 2021</span>
+                        <h3 class="job-title">Chargée d'Accueil et Services Généraux</h3>
+                        <p class="company-info">Agence Penelope - Paris, France</p>
+                        <ul class="job-description">
+                            <li>Accueil sur sites prestigieux : siège IEDOM et Conseil Départemental des Hauts-de-Seine</li>
+                            <li>Gestion visiteurs, badges, salles de réunion, courriers et livraisons</li>
+                            <li>Coordination avec prestataires extérieurs et suivi des services généraux</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Formation</h2>
+                    
+                    <div class="education-item">
+                        <span class="date-badge">Oct 2024 - Avr 2025</span>
+                        <h3 class="job-title">Chargée de Marketing Digital</h3>
+                        <p class="company-info">Formation spécialisée</p>
+                    </div>
+
+                    <div class="education-item">
+                        <span class="date-badge">Sep 2022 - Juil 2024</span>
+                        <h3 class="job-title">Master 2 Digital Marketing Strategy</h3>
+                        <p class="company-info">École de Management Léonard de Vinci - Paris, La Défense</p>
+                        <ul class="job-description">
+                            <li>E-commerce, SEO/SEA, UX/UI, Gestion de projet Web, Stratégie digitale</li>
+                            <li>Online reputation, CRM, Growth hacking</li>
+                        </ul>
+                    </div>
+
+                    <div class="education-item">
+                        <span class="date-badge">2022</span>
+                        <h3 class="job-title">Échange Universitaire</h3>
+                        <p class="company-info">University of Applied Sciences, JAMK - Jyväskylä, Finlande</p>
+                    </div>
+
+                    <div class="education-item">
+                        <span class="date-badge">2016 - 2019</span>
+                        <h3 class="job-title">Baccalauréat ES, Spécialité Mathématiques</h3>
+                        <p class="company-info">Lycée et Internat SUGER - Vaucresson, France</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
